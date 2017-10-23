@@ -1,0 +1,18 @@
+
+{% block content %}
+{% for i in data %}
+<fieldset>
+    <legend>
+        {% if i[0]=='Q' %}
+            {{i[1]}}
+        {% endif %}
+    </legend>
+
+    {% if i[0]=='A' %}
+    <input type="radio" name="action1" id="track1"{{i[1]}} value="track"{{i[1]}} /><label for="track"{{i[1]}}>{{i[1]}}</label><br />
+{% endif %}
+
+</fieldset>
+{% endfor %}
+<br>
+{% endblock %}

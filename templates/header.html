@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+    <title>Amazon question list</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+{% import "bootstrap/wtf.html" as wtf %}
+{% block content %}
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</head>
+<header>
+</header>
+<style>
+checkbox {
+padding-right: 4px solid;
+}
+
+radio{
+padding-right: 4px solid;
+}
+    body, html {
+    height: 200%;
+    background-repeat: no-repeat;
+      background: -webkit-linear-gradient(90deg, #16222A 10%, #3A6073 90%); /* Chrome 10+, Saf5.1+ */
+  background:    -moz-linear-gradient(90deg, #16222A 10%, #3A6073 90%); /* FF3.6+ */
+  background:     -ms-linear-gradient(90deg, #16222A 10%, #3A6073 90%); /* IE10 */
+  background:      -o-linear-gradient(90deg, #16222A 10%, #3A6073 90%); /* Opera 11.10+ */
+  background:         linear-gradient(90deg, #16222A 10%, #3A6073 90%); /* W3C */
+
+}
+}
+.middlePage {
+	width: 680px;
+    height: 500px;
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.logo {
+	color:#CCC;
+}
+</style>
+<body>
+<div class="middlePage">
+<div class="page-header">
+  <h1 class="logo">Amazon <small>questionnaire</small></h1>
+</div>
+
+<div class="container-fluid">
+    <div class="col-md-3">
+
+        <div class="panel panel-danger">
+  <div class="panel-body">
+        <form class="form-signin" method="POST" action="/">
+       {{ form.hidden_tag() }}
+    {{ wtf.form_field(form.Lang) }}
+    {{ wtf.form_field(form.Type) }}
+          <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-search"></span> Search</button>
+        </form>
+      </ul><br>
+  </div>
+        </div>
+      </div>
+</div>
+{% if data  %}
+    <div class="container-fluid">
+        <div class="col-md-4">
+    <div class="panel panel-default">
+        <div class="panel-heading">Answer to the questions</div>
+                        {% for i in data %}
+
+                        {% if i[0]=='Q' %}
+                            <b>{{i[1]}}</b><br>
+                        {% endif %}
+                        {% if i[0]=='A' and i[4]=='list_box' %}
+                            <div class="radio"><label><input type="radio" name="id_question_{{i[3]}}" id="{{i[2]}}">{{i[1]}}</label></div>
+                        {% elif i[0]=='A' and i[4]=='check_box' %}
+                             <div class="checkbox"><label><input type="checkbox" name="id_question_{{i[3]}}" id="{{i[2]}}">{{i[1]}}</label></div>
+                        {% endif %}
+
+                        {% endfor %}
+
+</div>
+            <button class="btn btn-primary updateButton" member_id="submit"><span class="glyphicon glyphicon-ok"></span> Update</button>
+</div>
+</div>
+
+
+
+{% endif %}
+    </div>
+</body>
+</html>
+
+{% endblock %}
