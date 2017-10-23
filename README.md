@@ -3,4 +3,4 @@ Web application wrote for repair center and the needs of the Amazon project, whe
 
  * Flask - framwork for web application,
  * pyodbc - connection with local database,
- * wtforms,flask_wtf - to generare and validate fields;
+ * wtforms, flask_wtf - to generare and validate fields;
