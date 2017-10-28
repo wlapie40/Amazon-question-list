@@ -3,5 +3,5 @@ Web application wrote for repair center and the needs of some Amazon project, wh
 
  * Flask - framework for web application,
  * pyodbc - connection with local database,
- * jinja2
+ * Jinja2 -  templating language for Python,
  * wtforms, flask_wtf - to generate and validation fields;
