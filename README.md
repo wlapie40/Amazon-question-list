@@ -1,5 +1,5 @@
 # Amazon-question-list
-Web application wrote for repair center and the needs of some Amazon project, where technicians have to check elements,characteristics and after repair process prepare documentation (specific for every kind of producty type). After choose the product type and languge, code extract whole need data from local databes and generate qustion list.
+Web form app wrote for repair center and the needs of some Amazon project, where technicians had to check some elements and their characteristics in order to prepare a documentation after finishing the repair process. All the neccessary data were extracted from db first.
 
  * Flask - framework for web application,
  * pyodbc - connection with local database,
